@@ -15,6 +15,7 @@ const Lane = ({
 		<div 
 			className='Lane-wrapper'
 			onDragOver={onDragOver}
+			onDrop={(e) => onDrop(e, laneId)}
 		>
 			<h2>{title}</h2>
 			{loading || error ? (
@@ -28,7 +29,6 @@ const Lane = ({
 						title={task.title}
 						body={task.body}
 						onDragStart={onDragStart}
-						onDrop={(e) => onDrop(e, laneId)}
 					/>
 				))
 			)}
