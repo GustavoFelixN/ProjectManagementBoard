@@ -1,7 +1,16 @@
 import './Lane.css';
 import Task from '../Task/Task';
 
-const Lane = ({ title, loading, error, tasks, onDragStart, onDragOver }) => {
+const Lane = ({ 
+	laneId,
+	title, 
+	loading, 
+	error, 
+	tasks, 
+	onDragStart, 
+	onDragOver, 
+	onDrop 
+}) => {
 	return (
 		<div 
 			className='Lane-wrapper'
@@ -19,6 +28,7 @@ const Lane = ({ title, loading, error, tasks, onDragStart, onDragOver }) => {
 						title={task.title}
 						body={task.body}
 						onDragStart={onDragStart}
+						onDrop={(e) => onDrop(e, laneId)}
 					/>
 				))
 			)}
