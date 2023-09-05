@@ -16,6 +16,10 @@ const Board = () => {
 		e.dataTransfer.setData('id', id);
 	}
 
+	const onDragOver = (e) => {
+		e.preventDefault();
+	}
+
 	return (
 		<div className='Board-wrapper'>
 			{lanes.map((lane) => (
@@ -26,6 +30,7 @@ const Board = () => {
 					error={error}
 					tasks={tasks.filter(task => task.lane === lane.id)}
 					onDragStart={onDragStart}
+					onDragOver={onDragOver}
 				/>
 			))}
 		</div>
