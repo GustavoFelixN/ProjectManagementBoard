@@ -9,6 +9,9 @@ const useDataFetching = (dataSource) => {
 		const fetchData = async () => {
 			try {
 				const data = await fetch(dataSource);
+				if (!data.ok) {
+					throw new Error('Erro na resposta da API');
+				}
 				const result = await data.json();
 
 				if (result) {
@@ -18,6 +21,7 @@ const useDataFetching = (dataSource) => {
 			} catch(e) {
 				setError(e.message);
 				setLoading(false);
+				setData([]);
 			}
 
 		};
