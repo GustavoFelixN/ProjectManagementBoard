@@ -12,6 +12,10 @@ const lanes = [
 const Board = () => {
 	const [loading, error, tasks] = useDataFetching('https://my-json-server.typicode.com/GustavoFelixN/ProjectManagementBoard/tasks');
 
+	const onDragStart = (e, id) => {
+		e.dataTransfer.setData('id', id);
+	}
+
 	return (
 		<div className='Board-wrapper'>
 			{lanes.map((lane) => (
@@ -21,6 +25,7 @@ const Board = () => {
 					loading={loading}
 					error={error}
 					tasks={tasks.filter(task => task.lane === lane.id)}
+					onDragStart={onDragStart}
 				/>
 			))}
 		</div>
