@@ -1,4 +1,3 @@
-import './Task.css';
 import styled from 'styled-components';
 
 const TaskWrapper = styled.div`
